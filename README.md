@@ -10,6 +10,10 @@ Made with the teardown skill (MIT) by elvarofficial — https://github.com/elvar
 
 three.js (MIT) is bundled.
 
+Fan-made and not affiliated with Nintendo, Game Freak or The Pokémon Company. Pokémon names and sprites belong to their owners. Sprites from PokeAPI.
+
+Sprites are loaded at runtime from [PokeAPI/sprites](https://github.com/PokeAPI/sprites).
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

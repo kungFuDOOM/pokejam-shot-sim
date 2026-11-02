@@ -170,9 +170,18 @@ None of these affect any number on screen.
 
 - **GUESSED:** pole radius 0.25, pole pad, arm thickness, board thickness 0.1, rim tube 0.05, rim neck, court line width 0.17.
 - **GUESSED:** a full 12-strand net (the game draws 7 strands on a half rim), rim shake size, ball spin rate.
-- **GUESSED:** body radius 0.42 + 0.22 × size, defender jump height 1 ft (the game only tests z > 0.8).
+- **GUESSED:** fallback figure radius 0.42 + 0.22 × size, defender jump height 1 ft (the game only tests z > 0.8).
+- **GUESSED: the gather.** The game jumps on the press, so the 0.18 s crouch before the shot clock starts is cosmetic. It delays the shot by 0.18 s of wall time and changes no model number.
+- **GUESSED: squash amounts.** Gather 24%, release pop 10% with a 0.22 rad lean, landing 14%.
+- **REAL: sprite size and motion.** Sprite height `heightFt - 0.5`, largest side scaled to it, feet at the cropped bottom row, team ring radius 1.15 × size, and 8% stretch while vz > 4 (`game/render.ts:25, 498, 526-537`). Feet height is the model's `bodyZ`.
+- **GUESSED: back sprites.** The game always shows the front sprite while shooting (`game/game.ts:1459`). Here the back sprite shows when the camera is behind the way the Pokémon faces, because this camera can orbit.
+- **GUESSED: sprite choice.** The picker changes the look only. Ratings and body size stay on their sliders, and the default defender is Gengar.
 - **GUESSED:** stand geometry and apron size, camera angles, tour timing, the airball marker at 4.5 ft (midpoint of the real 3 to 6).
 
 ### Left out on purpose
 
-The centre-court logo, floor text, team and arena names, and all character names and sprites are not used. Character ratings exist in the repo, but no named character is used.
+The centre-court logo, floor text, and team and arena names are not used. Character ratings exist in the repo, but the picker's Pokémon don't bring theirs.
+
+### Sprites and credit
+
+Sprites load at runtime from PokeAPI's GitHub repo, so opening the page contacts `raw.githubusercontent.com`. None are embedded. If the fetch fails, the fallback figure stands in. The credit line is always on screen.
